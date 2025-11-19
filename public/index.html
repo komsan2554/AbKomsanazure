@@ -1,458 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stand Up — Stop Bullying</title>
-  <meta name="description" content="Stand Up — a safe place to learn about bullying, get help, report incidents, and join a pledge to stand up for one another." />
-  <meta name="theme-color" content="#2b1140" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Bullying — Stand Together</title>
   <style>
-    :root{
-      --bg:#0b0710;
-      --panel:#0f0b14;
-      --purple-1:#6f4bd8;
-      --purple-2:#4a2aa6;
-      --accent:#b892ff;
-      --muted:#bdb7c6;
-      --success:#42c98d;
-      --danger:#ff6b6b;
-      --glass: rgba(255,255,255,0.03);
-      --radius:12px;
-      --max-width:1100px;
-      --container-padding:24px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: #eee;
-      background: linear-gradient(180deg, rgba(74,42,166,0.92) 0%, rgba(43,17,64,1) 60%), var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #a7d8f0, #e6f7ff);
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #0a2342;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: left;
+      padding: 20px;
     }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      line-height:1.45;
-      display:flex;
-      justify-content:center;
-      padding:40px 16px;
+    .container {
+      max-width: 800px;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
-
-    .site{
-      width:100%;
-      max-width:var(--max-width);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
-      border-radius:18px;
-      box-shadow: 0 6px 40px rgba(0,0,0,0.6);
-      overflow:hidden;
-      backdrop-filter: blur(6px);
+    h1 {
+      font-size: 32px;
+      margin-bottom: 24px;
+      color: #014f86;
     }
-
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:18px var(--container-padding);
-      border-bottom:1px solid rgba(255,255,255,0.03);
-      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 16px;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:inherit;
+    ul {
+      margin-left: 20px;
     }
-    .logo{
-      width:48px;height:48px;
-      display:grid;place-items:center;
-      border-radius:10px;
-      background:linear-gradient(135deg,var(--purple-1),var(--purple-2));
-      box-shadow: 0 4px 16px rgba(74,42,166,0.35);
-      font-weight:700;
-      font-size:18px;
-      color:#fff;
+    .highlight {
+      font-weight: bold;
+      color: #05668d;
     }
-    nav{display:flex;gap:12px; align-items:center;}
-    .nav-link{
-      color:var(--muted);
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:10px;
-      font-size:15px;
-    }
-    .nav-link:hover{color:#fff; background:var(--glass);}
-
-    main{padding:28px var(--container-padding);}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 380px;
-      gap:24px;
-      align-items:start;
-    }
-
-    /* HERO */
-    .hero{
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.03));
-      padding:22px;
-      border-radius: var(--radius);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero h1{
-      margin:0 0 8px 0;
-      font-size:28px;
-      letter-spacing:-0.4px;
-      color:#fff;
-    }
-    .hero p{margin:0 0 16px 0; color:var(--muted);}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      text-decoration:none;
-      cursor:pointer;
-      border:0;font-weight:600;
-      background:linear-gradient(180deg,var(--purple-1),var(--purple-2));
-      color:#fff;
-      box-shadow: 0 6px 18px rgba(74,42,166,0.25);
-    }
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(186,146,255,0.12);box-shadow:none;}
-    .small-note{font-size:13px;color:var(--muted);margin-top:8px;}
-
-    /* Sidebar card */
-    aside .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.04)); padding:18px; border-radius:14px; border:1px solid rgba(255,255,255,0.02);}
-    .card h3{margin-top:0;}
-    .quick-links{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
-    .quick-links a{padding:12px;border-radius:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg, rgba(122,85,222,0.14), rgba(60,34,150,0.08));font-weight:600;}
-
-    /* Sections */
-    section{margin-top:18px;}
-    .resources-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap:12px;
-    }
-    .resource{
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
-      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-    }
-    .resource h4{margin:0 0 6px 0;}
-    .muted{color:var(--muted);font-size:14px;}
-
-    /* Report form */
-    form{display:flex;flex-direction:column;gap:10px;}
-    label{font-size:14px;color:var(--muted);}
-    input[type="text"], input[type="email"], textarea, select{
-      padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.01); color:inherit; outline:none;
-    }
-    textarea{min-height:120px; resize:vertical;}
-    .row{display:flex;gap:10px;}
-    .row .col{flex:1;}
-    .note{font-size:13px;color:var(--muted);}
-    .msg{padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);}
-
-    footer{padding:18px var(--container-padding);border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--muted);}
-
-    /* accessibility */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-    .skip-link{position:absolute;left:12px;top:12px;background:#111;padding:8px 12px;border-radius:8px;z-index:100;opacity:0.98;color:#fff;text-decoration:none;}
-    .pledge-cta{display:flex;gap:8px;align-items:center;}
-    .badge{padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),#8c6cff);font-weight:700;color:#111;font-size:13px;}
-
-    /* responsive */
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr;}
-      aside{order:2;}
-    }
-    @media (max-width:540px){
-      header{padding:12px;}
-      main{padding:18px;}
-      .hero h1{font-size:22px;}
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="site" role="application" aria-labelledby="site-title">
-    <header>
-      <a class="brand" href="#home" aria-label="Stand Up home">
-        <div class="logo" aria-hidden="true">SU</div>
-        <div>
-          <div id="site-title" style="font-weight:700">Stand Up</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">Stop Bullying • Support • Resources</div>
-        </div>
-      </a>
-      <nav aria-label="Main navigation">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#resources">Resources</a>
-        <a class="nav-link" href="#report">Report</a>
-        <a class="nav-link" href="#pledge">Pledge</a>
-      </nav>
-    </header>
+  <div class="container">
+    <h1>Stop Bullying — Stand Together</h1>
+    <p>
+      Bullying is a behavior where someone, alone or in a group, intentionally tries to hurt another person physically or emotionally. It is often repeated and involves a power imbalance.  [oai_citation:14‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)  
+    </p>
+    <p>Types of bullying include:</p>
+    <ul>
+      <li>Physical: hitting, pushing, kicking, pinching.  [oai_citation:15‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
+      <li>Verbal: teasing, threatening, spreading rumors.  [oai_citation:16‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
+      <li>Relational: ignoring, excluding someone from a group.  [oai_citation:17‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
+      <li>Property: destroying or hiding someone’s belongings.  [oai_citation:18‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
+      <li>Cyber: using social media, posting hurtful messages or videos.  [oai_citation:19‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
+    </ul>
+    <p>
+      Bullying affects not only the victim, but also the bully and those who witness it.  [oai_citation:20‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
+    </p>
+    <p class="highlight">
+      Victims may feel powerless, lose self-esteem, suffer from anxiety or depression, or even consider self-harm.  [oai_citation:21‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
+    </p>
+    <p class="highlight">
+      Bullies themselves may act out due to low self-esteem, stress, or the need for control and recognition.  [oai_citation:22‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
+    </p>
+    <p>
+      Bystanders — those who see bullying happen — can unintentionally encourage it. Some learn that “power means respect,” and this cycle grows.  [oai_citation:23‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
+    </p>
 
-    <main id="main" tabindex="-1">
-      <div class="grid">
-        <div>
-          <section class="hero" id="home" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Stand Up. Speak Out. Stop Bullying.</h1>
-            <p>Bullying hurts. Whether online or in-person, everyone deserves safety and respect. We provide guidance, immediate steps, and resources to help survivors and bystanders act safely.</p>
-            <div class="cta-row">
-              <a class="btn" href="#report" id="report-now">Report an incident</a>
-              <a class="btn ghost" href="#resources">Get help & resources</a>
-            </div>
-            <p class="small-note">If you or someone is in immediate danger, call your local emergency number right away.</p>
-          </section>
+    <h2>How to Help & Prevent Bullying</h2>
+    <p>Everyone — both children and adults — must understand that bullying is serious. It’s not just “kids being kids.”  [oai_citation:24‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</p>
 
-          <section id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading" style="margin:0 0 12px 0">About Stand Up</h2>
-            <div class="hero">
-              <p class="muted">Stand Up is a community-focused resource to help people recognize bullying, respond safely, and find support. We encourage respectful behavior and provide tools for survivors, parents, educators, and bystanders.</p>
-              <ul style="margin:12px 0 0 20px;color:var(--muted)">
-                <li><strong>Recognize</strong> signs of bullying—verbal, physical, social, or online.</li>
-                <li><strong>Respond</strong> safely as a target, witness, or supporter.</li>
-                <li><strong>Report</strong> incidents to trusted adults or appropriate authorities.</li>
-                <li><strong>Recover</strong> with resources for emotional support.</li>
-              </ul>
-            </div>
-          </section>
+    <ul>
+      <li>Listen to children who report being bullied. Encourage them. Don’t dismiss them as “telling tales.”  [oai_citation:25‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Ask about what happened: who, where, how. Use this to plan support.  [oai_citation:26‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Teach assertiveness: help children say, “I don’t like how you treat me.”  [oai_citation:27‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>If bullying continues: convene talks with everyone involved — victims, bullies, and witnesses — plus parents and teachers.  [oai_citation:28‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Promote “buddy systems”: encourage children to support each other so no one is alone.  [oai_citation:29‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Foster empathy: encourage children to consider how others feel. “If that were me …” helps build understanding.  [oai_citation:30‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>For children with emotional or behavioral struggles (like low self-esteem or ADHD), connect them to a mental health professional.  [oai_citation:31‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+    </ul>
 
-          <section id="resources" aria-labelledby="resources-heading">
-            <h2 id="resources-heading" style="margin:0 0 12px 0">Resources</h2>
-            <div class="resources-grid">
-              <article class="resource" aria-labelledby="r1">
-                <h4 id="r1">For Students</h4>
-                <p class="muted">How to protect your privacy, block/report online abuse, and seek support at school.</p>
-                <p><a class="nav-link" href="#report">Learn how to report →</a></p>
-              </article>
-
-              <article class="resource" aria-labelledby="r2">
-                <h4 id="r2">For Parents & Caregivers</h4>
-                <p class="muted">Signs to watch for, talking tips, and steps to take with schools and platforms.</p>
-              </article>
-
-              <article class="resource" aria-labelledby="r3">
-                <h4 id="r3">For Educators</h4>
-                <p class="muted">Prevention strategies, incident handling, and classroom resources.</p>
-              </article>
-
-              <article class="resource" aria-labelledby="r4">
-                <h4 id="r4">Emergency Help</h4>
-                <p class="muted">If you are at risk of harm, contact local emergency services immediately.</p>
-                <p class="muted">If you're feeling overwhelmed, reach out to a trusted adult or crisis hotline.</p>
-              </article>
-            </div>
-          </section>
-
-          <section id="pledge" aria-labelledby="pledge-heading">
-            <h2 id="pledge-heading" style="margin:0 0 12px 0">Take the Pledge</h2>
-            <div class="hero" style="display:flex;flex-direction:column;gap:10px;">
-              <p class="muted">Join others who promise to respect others, speak up safely, and support victims of bullying.</p>
-              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-                <label style="display:flex;gap:8px;align-items:center;">
-                  <input id="pledge-checkbox" type="checkbox" style="width:18px;height:18px;" />
-                  <span style="color:var(--muted)">I pledge to stand up and support others.</span>
-                </label>
-                <button class="btn" id="save-pledge">Save Pledge</button>
-                <div id="pledge-msg" role="status" aria-live="polite" class="note" style="margin-left:8px"></div>
-              </div>
-              <small class="small-note">Pledge saved locally to this browser. This is a symbolic action to remind yourself to act kindly.</small>
-            </div>
-          </section>
-
-          <section id="tips" aria-labelledby="tips-heading">
-            <h2 id="tips-heading" style="margin:0 0 12px 0">Quick Safety Tips</h2>
-            <div class="hero">
-              <ol style="margin:0 0 0 20px;color:var(--muted)">
-                <li>Save evidence — screenshots, messages, names, dates.</li>
-                <li>Block and mute the harasser on platforms where possible.</li>
-                <li>Tell a trusted adult, teacher, or counselor.</li>
-                <li>Report to the site/app using their safety/report tools.</li>
-                <li>Seek emotional support — you do not have to face this alone.</li>
-              </ol>
-            </div>
-          </section>
-        </div>
-
-        <aside>
-          <div class="card" role="complementary" aria-labelledby="help-heading">
-            <h3 id="help-heading">Quick Actions</h3>
-            <div class="quick-links">
-              <a href="#report">Report an incident</a>
-              <a href="#resources">Find help</a>
-              <a href="#pledge">Take the pledge</a>
-            </div>
-          </div>
-
-          <div style="height:12px;"></div>
-
-          <div class="card" id="report" aria-labelledby="report-heading" style="margin-top:12px;">
-            <h3 id="report-heading">Report an Incident</h3>
-            <p class="muted">Fill the form below to prepare a report. This form does not send data to authorities — it mimics a report flow and stores a local copy if you choose.</p>
-
-            <form id="report-form" novalidate>
-              <label for="name">Your name (optional)</label>
-              <input id="name" name="name" type="text" placeholder="e.g. Alex Rivera" />
-
-              <label for="email">Contact email (optional)</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" />
-
-              <label for="incident-type">Type of incident</label>
-              <select id="incident-type" name="incident-type" required>
-                <option value="">Select</option>
-                <option>Verbal</option>
-                <option>Physical</option>
-                <option>Social/Exclusion</option>
-                <option>Online/Cyberbullying</option>
-                <option>Other</option>
-              </select>
-
-              <label for="details">Describe what happened</label>
-              <textarea id="details" name="details" placeholder="Describe date, time, location, people involved, and any evidence (links, screenshots)..." required></textarea>
-
-              <div class="row">
-                <div class="col">
-                  <label for="location">Location</label>
-                  <input id="location" name="location" type="text" placeholder="School, platform, chat, etc." />
-                </div>
-                <div class="col">
-                  <label for="date">Date (approx.)</label>
-                  <input id="date" name="date" type="text" placeholder="e.g. 2025-11-10" />
-                </div>
-              </div>
-
-              <div style="display:flex;gap:8px;align-items:center;">
-                <button class="btn" type="submit">Save report</button>
-                <button class="btn ghost" id="clear-report" type="button">Clear</button>
-                <div id="report-status" class="note" aria-live="polite" style="margin-left:6px"></div>
-              </div>
-              <p class="muted" style="margin-top:8px">This demo saves a copy of the report to your browser's local storage. For official action, submit to your school, employer, or platform safety center.</p>
-            </form>
-          </div>
-        </aside>
-      </div>
-    </main>
+    <h2>Caring for Yourself (When You’re Being Bullied)</h2>
+    <ul>
+      <li>Avoid high-risk environments if possible. Stay safe.  [oai_citation:32‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Use “I‑messages” to express how you feel. E.g., “When you say that, I feel hurt.”  [oai_citation:33‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Record evidence: save messages, take pictures, write down what happened.  [oai_citation:34‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Tell someone you trust. Share what you’re going through, don’t suffer alone.  [oai_citation:35‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>Remember: being bullied is not your fault. You deserve respect and help.  [oai_citation:36‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+      <li>If things get too hard — talk to a psychologist, psychiatrist, or counselor.  [oai_citation:37‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
+    </ul>
 
     <footer>
-      <div>&copy; <span id="year"></span> Stand Up • Built for safety and respect</div>
-      <div style="display:flex;gap:10px;align-items:center;">
-        <div class="badge" aria-hidden="true">Be Kind</div>
-        <div class="muted">Privacy-first • No tracking</div>
-      </div>
+      <p>Based on content by Dr. Pranee Paveenchnacha, Manarom Hospital. Translated and adapted.</p>
     </footer>
   </div>
-
-  <script>
-    // small interactive behaviors:
-    (function(){
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Pledge
-      const pledgeCheckbox = document.getElementById('pledge-checkbox');
-      const savePledgeBtn = document.getElementById('save-pledge');
-      const pledgeMsg = document.getElementById('pledge-msg');
-      const PLEDGE_KEY = 'standup_pledge_v1';
-
-      // load
-      try {
-        const saved = localStorage.getItem(PLEDGE_KEY);
-        if (saved === 'true') {
-          pledgeCheckbox.checked = true;
-          pledgeMsg.textContent = 'You already pledged. Thank you!';
-        }
-      } catch(e){ /* ignore storage errors */ }
-
-      savePledgeBtn.addEventListener('click', function(){
-        try {
-          localStorage.setItem(PLEDGE_KEY, pledgeCheckbox.checked ? 'true' : 'false');
-          pledgeMsg.textContent = pledgeCheckbox.checked ? 'Pledge saved locally. Thank you!' : 'Pledge removed.';
-        } catch(e) {
-          pledgeMsg.textContent = 'Unable to save pledge in this browser.';
-        }
-      });
-
-      // Report form
-      const form = document.getElementById('report-form');
-      const status = document.getElementById('report-status');
-      const CLEAR_KEY = 'standup_saved_report_v1';
-
-      // load previous if exists
-      try {
-        const raw = localStorage.getItem(CLEAR_KEY);
-        if (raw) {
-          const data = JSON.parse(raw);
-          if (data && data.details) {
-            // prefill some fields so user sees it
-            document.getElementById('name').value = data.name || '';
-            document.getElementById('email').value = data.email || '';
-            document.getElementById('incident-type').value = data.incidentType || '';
-            document.getElementById('details').value = data.details || '';
-            document.getElementById('location').value = data.location || '';
-            document.getElementById('date').value = data.date || '';
-            status.textContent = 'A draft report was loaded from this browser.';
-          }
-        }
-      } catch(e){/* ignore */ }
-
-      form.addEventListener('submit', function(ev){
-        ev.preventDefault();
-        status.textContent = '';
-        // basic validation
-        const incidentType = document.getElementById('incident-type').value.trim();
-        const details = document.getElementById('details').value.trim();
-        if (!incidentType || !details) {
-          status.textContent = 'Please select incident type and describe what happened.';
-          status.style.color = 'var(--danger)';
-          return;
-        }
-        // build object
-        const report = {
-          name: document.getElementById('name').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          incidentType,
-          details,
-          location: document.getElementById('location').value.trim(),
-          date: document.getElementById('date').value.trim(),
-          savedAt: new Date().toISOString()
-        };
-        try {
-          localStorage.setItem(CLEAR_KEY, JSON.stringify(report));
-          status.style.color = 'var(--success)';
-          status.textContent = 'Report saved locally. Use this draft when reporting to authorities or school officials.';
-          // gentle visual acknowledgment
-          setTimeout(()=> {
-            status.style.color = '';
-          }, 3000);
-        } catch(e) {
-          status.style.color = 'var(--danger)';
-          status.textContent = 'Unable to save report in this browser.';
-        }
-      });
-
-      document.getElementById('clear-report').addEventListener('click', function(){
-        try {
-          localStorage.removeItem(CLEAR_KEY);
-          form.reset();
-          status.textContent = 'Draft cleared.';
-        } catch(e) {
-          status.textContent = 'Unable to clear draft.';
-        }
-      });
-
-      // "Report now" button focus shortcut
-      document.getElementById('report-now').addEventListener('click', function(ev){
-        ev.preventDefault();
-        document.getElementById('details').focus();
-        location.hash = '#report';
-      });
-
-      // keyboard: press P to toggle pledge checkbox (convenience)
-      document.addEventListener('keydown', function(e){
-        if (e.key.toLowerCase() === 'p' && !e.metaKey && !e.ctrlKey && !e.altKey) {
-          pledgeCheckbox.checked = !pledgeCheckbox.checked;
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
