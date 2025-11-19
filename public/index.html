@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>กำลังอัปเดตเว็บไซต์ | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #3b007a, #0a0a0a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px #8a2be2;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .loader {
+      border: 6px solid rgba(255, 255, 255, 0.1);
+      border-left-color: #9b59b6;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-top: 2rem;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚧 เว็บไซต์กำลังอยู่ระหว่างการอัปเดต</h1>
+  <p>กรุณาลองอีกครั้งในภายหลัง</p>
+  <div class="loader"></div>
+  <footer>© 2025 Komsan — All Rights Reserved</footer>
+</body>
+</html>
