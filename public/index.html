@@ -1,107 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop Bullying — Stand Together</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #a7d8f0, #e6f7ff);
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: #0a2342;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: left;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 24px;
-      color: #014f86;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    .highlight {
-      font-weight: bold;
-      color: #05668d;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BullyNoMore - Stop Bullying Together</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // blue-500
+                        secondary: '#ec4899', // pink-500
+                        light: '#f8fafc', // slate-50
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <div class="container">
-    <h1>Stop Bullying — Stand Together</h1>
-    <p>
-      Bullying is a behavior where someone, alone or in a group, intentionally tries to hurt another person physically or emotionally. It is often repeated and involves a power imbalance.  [oai_citation:14‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)  
-    </p>
-    <p>Types of bullying include:</p>
-    <ul>
-      <li>Physical: hitting, pushing, kicking, pinching.  [oai_citation:15‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
-      <li>Verbal: teasing, threatening, spreading rumors.  [oai_citation:16‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
-      <li>Relational: ignoring, excluding someone from a group.  [oai_citation:17‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
-      <li>Property: destroying or hiding someone’s belongings.  [oai_citation:18‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
-      <li>Cyber: using social media, posting hurtful messages or videos.  [oai_citation:19‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com) </li>
-    </ul>
-    <p>
-      Bullying affects not only the victim, but also the bully and those who witness it.  [oai_citation:20‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
-    </p>
-    <p class="highlight">
-      Victims may feel powerless, lose self-esteem, suffer from anxiety or depression, or even consider self-harm.  [oai_citation:21‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
-    </p>
-    <p class="highlight">
-      Bullies themselves may act out due to low self-esteem, stress, or the need for control and recognition.  [oai_citation:22‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
-    </p>
-    <p>
-      Bystanders — those who see bullying happen — can unintentionally encourage it. Some learn that “power means respect,” and this cycle grows.  [oai_citation:23‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)
-    </p>
+<body class="bg-light min-h-screen">
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white mb-12">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Together We Can Stop Bullying</h1>
+                <p class="text-xl mb-8">Understanding, preventing, and overcoming bullying in schools and workplaces</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#what-is-bullying" class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">Learn More</a>
+                    <a href="#get-help" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:bg-opacity-20 transition">Get Help</a>
+                </div>
+            </div>
+        </section>
 
-    <h2>How to Help & Prevent Bullying</h2>
-    <p>Everyone — both children and adults — must understand that bullying is serious. It’s not just “kids being kids.”  [oai_citation:24‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</p>
+        <!-- What is Bullying Section -->
+        <section id="what-is-bullying" class="mb-16">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://www.manarom.com/blog/img/dr_prani.jpg" alt="Dr. Pranee" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-primary mb-4">What is Bullying?</h2>
+                    <p class="text-lg mb-6">Bullying is intentional harmful behavior that is repeated over time and involves an imbalance of power. It can take many forms:</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-2 rounded-full">
+                                <i data-feather="alert-triangle"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Physical Bullying</h3>
+                                <p class="text-gray-600">Hitting, pushing, or damaging property</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-2 rounded-full">
+                                <i data-feather="message-square"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Verbal Bullying</h3>
+                                <p class="text-gray-600">Name-calling, threats, spreading rumors</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-2 rounded-full">
+                                <i data-feather="users"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Social Bullying</h3>
+                                <p class="text-gray-600">Exclusion, embarrassing someone publicly</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-2 rounded-full">
+                                <i data-feather="smartphone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Cyberbullying</h3>
+                                <p class="text-gray-600">Online harassment, sharing private information</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <ul>
-      <li>Listen to children who report being bullied. Encourage them. Don’t dismiss them as “telling tales.”  [oai_citation:25‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Ask about what happened: who, where, how. Use this to plan support.  [oai_citation:26‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Teach assertiveness: help children say, “I don’t like how you treat me.”  [oai_citation:27‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>If bullying continues: convene talks with everyone involved — victims, bullies, and witnesses — plus parents and teachers.  [oai_citation:28‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Promote “buddy systems”: encourage children to support each other so no one is alone.  [oai_citation:29‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Foster empathy: encourage children to consider how others feel. “If that were me …” helps build understanding.  [oai_citation:30‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>For children with emotional or behavioral struggles (like low self-esteem or ADHD), connect them to a mental health professional.  [oai_citation:31‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-    </ul>
+        <!-- Impact Section -->
+        <section class="bg-white rounded-xl shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-primary mb-8">The Impact of Bullying</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-light p-6 rounded-lg text-center">
+                    <div class="bg-secondary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="heart"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">On Victims</h3>
+                    <p class="text-gray-600">Low self-esteem, anxiety, depression, school avoidance, and in severe cases, self-harm or suicidal thoughts.</p>
+                </div>
+                <div class="bg-light p-6 rounded-lg text-center">
+                    <div class="bg-secondary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="user"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">On Bullies</h3>
+                    <p class="text-gray-600">Increased risk of substance abuse, criminal behavior, and difficulty maintaining relationships later in life.</p>
+                </div>
+                <div class="bg-light p-6 rounded-lg text-center">
+                    <div class="bg-secondary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="eye"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">On Bystanders</h3>
+                    <p class="text-gray-600">Feelings of guilt, fear of becoming targets themselves, and increased anxiety about school or work environments.</p>
+                </div>
+            </div>
+        </section>
 
-    <h2>Caring for Yourself (When You’re Being Bullied)</h2>
-    <ul>
-      <li>Avoid high-risk environments if possible. Stay safe.  [oai_citation:32‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Use “I‑messages” to express how you feel. E.g., “When you say that, I feel hurt.”  [oai_citation:33‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Record evidence: save messages, take pictures, write down what happened.  [oai_citation:34‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Tell someone you trust. Share what you’re going through, don’t suffer alone.  [oai_citation:35‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>Remember: being bullied is not your fault. You deserve respect and help.  [oai_citation:36‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-      <li>If things get too hard — talk to a psychologist, psychiatrist, or counselor.  [oai_citation:37‡manarom.com](https://www.manarom.com/blog/stop_bullying.html?utm_source=chatgpt.com)</li>
-    </ul>
+        <!-- How to Help Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-primary mb-8">How You Can Help</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4 text-secondary">If You're Being Bullied</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Remember it's not your fault - no one deserves to be bullied</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Tell a trusted adult about what's happening</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Stay near adults or groups of friends when possible</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Practice confident body language and responses</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Document incidents with dates, times, and details</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4 text-secondary">If You Witness Bullying</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Speak up if it's safe - say "That's not cool" or "Leave them alone"</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Support the person being bullied - walk away with them</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Report the incident to an authority figure</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Include the person being bullied in your activities</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-feather="check" class="text-primary"></i>
+                            <span>Set a positive example with your own behavior</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-      <p>Based on content by Dr. Pranee Paveenchnacha, Manarom Hospital. Translated and adapted.</p>
-    </footer>
-  </div>
+        <!-- Get Help Section -->
+        <section id="get-help" class="bg-primary text-white rounded-2xl p-8 mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">Need Immediate Help?</h2>
+                <p class="text-xl mb-8">If you or someone you know is experiencing bullying, these resources can help:</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="tel:027259595" class="bg-white text-primary p-6 rounded-lg text-center hover:bg-opacity-90 transition">
+                        <div class="bg-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="phone"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Call for Help</h3>
+                        <p>02-725-9595</p>
+                    </a>
+                    <a href="https://www.manarom.com/mhdoctors_thai.html" class="bg-white text-primary p-6 rounded-lg text-center hover:bg-opacity-90 transition">
+                        <div class="bg-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="users"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Find a Specialist</h3>
+                        <p>Search for doctors and therapists</p>
+                    </a>
+                    <a href="https://www.manarom.com/contact_thai.html" class="bg-white text-primary p-6 rounded-lg text-center hover:bg-opacity-90 transition">
+                        <div class="bg-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="mail"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Contact Us</h3>
+                        <p>Send us a message</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-primary mb-8">Real Stories, Real Impact</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://www.manarom.com/blog/img/stop_bullying01.jpg" alt="School bullying" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="font-bold text-xl mb-2">School Bullying</h3>
+                    <p class="text-gray-600 mb-4">"I was bullied for my accent in middle school. It made me dread going to school every day..."</p>
+                    <a href="#" class="text-secondary font-semibold hover:underline">Read more</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://www.manarom.com/blog/img/stop_bullying02.jpg" alt="Workplace bullying" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="font-bold text-xl mb-2">Workplace Bullying</h3>
+                    <p class="text-gray-600 mb-4">"My coworkers excluded me from important meetings and spread rumors about my work..."</p>
+                    <a href="#" class="text-secondary font-semibold hover:underline">Read more</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://www.manarom.com/blog/img/stop_bullying05.jpg" alt="Cyberbullying" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="font-bold text-xl mb-2">Cyberbullying</h3>
+                    <p class="text-gray-600 mb-4">"Someone created a fake profile using my photos and posted embarrassing comments..."</p>
+                    <a href="#" class="text-secondary font-semibold hover:underline">Read more</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
 </body>
 </html>
