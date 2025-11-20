@@ -3,162 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Popup Demo</title>
+<title>Popup Mobile Friendly</title>
 
 <style>
   body {
     margin: 0;
-    font-family: sans-serif;
-    background: #f2f2f2;
+    font-family: "Prompt", sans-serif;
+    background: linear-gradient(135deg, #ffe8f6, #e4f1ff);
     height: 100vh;
     overflow: hidden;
     position: relative;
+    color: #333;
   }
 
-  /* ปุ่มแบบหนีตำแหน่ง */
+  /* ปุ่มหนีตำแหน่ง */
   #moveBtn {
     position: absolute;
-    padding: 12px 20px;
-    background: #ff3b3b;
-    color: #fff;
+    padding: 14px 22px;
+    background: #ff80c8;
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
+    font-size: 17px;
     cursor: pointer;
-    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(255, 128, 200, 0.35);
+    transition: 0.15s;
   }
 
-  /* ปุ่มเปิด popup กลาง */
+  /* ปุ่ม popup ตรงกลาง */
   #centerBtn {
     position: absolute;
-    bottom: 20px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 14px 26px;
-    background: #333;
-    color: #fff;
-    border-radius: 10px;
+    padding: 15px 28px;
+    background: #68b3ff;
     border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    color: white;
     cursor: pointer;
-    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(104, 179, 255, 0.35);
   }
 
-  /* popup random */
-  #randomPopup {
-    position: absolute;
-    padding: 12px 18px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    font-size: 15px;
-    display: none;
-  }
-
-  /* popup ตรงกลาง */
+  /* popup overlay */
   #centerPopup {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.45);
     display: none;
     align-items: center;
     justify-content: center;
   }
 
+  /* popup box */
   #centerBox {
-    background: white;
-    padding: 20px;
-    width: 85%;
+    background: #ffffff;
+    padding: 18px;
+    width: 88%;
     max-width: 380px;
     border-radius: 15px;
     text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
   }
+
   #centerBox img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
   }
 
   #closeCenter {
     margin-top: 12px;
-    padding: 10px 20px;
-    background: #444;
+    padding: 10px 22px;
+    background: #ff80c8;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
     cursor: pointer;
   }
+
 </style>
 </head>
 <body>
 
-<!-- ป๊อปอัปสุ่ม -->
-<div id="randomPopup">ป๊อปอัปสุ่มตำแหน่ง!</div>
-
 <!-- ปุ่มที่หนีตำแหน่ง -->
-<button id="moveBtn">กดฉันสิ 😆</button>
+<button id="moveBtn">กดให้ทันสิ 😆</button>
 
-<!-- ปุ่มเปิดป๊อปอัปกลาง -->
-<button id="centerBtn">ป๊อปอัปกลาง</button>
+<!-- ปุ่มเปิด popup ตรงกลาง -->
+<button id="centerBtn">เปิดป๊อปอัป</button>
 
-<!-- ป๊อปอัปกลาง -->
+<!-- popup ตรงกลาง -->
 <div id="centerPopup">
   <div id="centerBox">
-    <img src="https://via.placeholder.com/350x200" alt="">
-    <h3>ป๊อปอัปแบบมีรูปและข้อความ</h3>
-    <p>นี่คือข้อความตัวอย่างที่อยู่ใน popup ตรงกลาง</p>
+    <img src="https://via.placeholder.com/350x200?text=Hello" alt="Popup Image">
+    <h3>ป๊อปอัปแบบภาพ + ข้อความ</h3>
+    <p>นี่คือป๊อปอัปตรงกลาง เหมาะกับมือถือและโทนสีชมพูฟ้าขาว 💖</p>
     <button id="closeCenter">ปิด</button>
   </div>
 </div>
 
 <script>
-  // -------------------------------
-  // 1) ป๊อปอัปสุ่มตำแหน่ง (ขึ้นเรื่อยๆ)
-  // -------------------------------
-  const randomPopup = document.getElementById("randomPopup");
-
-  function showRandomPopup() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-
-    const x = Math.random() * (w - 150);
-    const y = Math.random() * (h - 80);
-
-    randomPopup.style.left = x + "px";
-    randomPopup.style.top = y + "px";
-    randomPopup.style.display = "block";
-
-    setTimeout(() => {
-      randomPopup.style.display = "none";
-    }, 1200);
-  }
-
-  // แสดงทุก 2.5 วิ
-  setInterval(showRandomPopup, 2500);
-
-
-
-  // -------------------------------
-  // 2) ปุ่มที่หนีตำแหน่ง
-  // -------------------------------
+  // ปุ่มหนีตำแหน่ง
   const moveBtn = document.getElementById("moveBtn");
 
   function moveButton() {
     const w = window.innerWidth;
     const h = window.innerHeight;
 
-    const x = Math.random() * (w - 180);
-    const y = Math.random() * (h - 60);
+    const x = Math.random() * (w - 150);
+    const y = Math.random() * (h - 150);
 
     moveBtn.style.left = x + "px";
     moveBtn.style.top = y + "px";
   }
 
-  moveButton(); // random เริ่มต้น
+  moveButton(); // เริ่มต้นวางแบบสุ่ม
+
+  moveBtn.addEventListener("touchstart", moveButton);
   moveBtn.addEventListener("mouseover", moveButton);
   moveBtn.addEventListener("click", moveButton);
 
-
-  // -------------------------------
-  // 3) ป๊อปอัปกลางพร้อมรูป + ข้อความ
-  // -------------------------------
+  // popup ตรงกลาง
   const centerBtn = document.getElementById("centerBtn");
   const centerPopup = document.getElementById("centerPopup");
   const closeCenter = document.getElementById("closeCenter");
@@ -166,11 +132,11 @@
   centerBtn.onclick = () => {
     centerPopup.style.display = "flex";
   };
+
   closeCenter.onclick = () => {
     centerPopup.style.display = "none";
   };
 
-  // คลิกด้านนอกเพื่อปิด
   centerPopup.onclick = (e) => {
     if (e.target === centerPopup) {
       centerPopup.style.display = "none";
