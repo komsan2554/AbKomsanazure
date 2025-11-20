@@ -16,10 +16,26 @@
     color: #333;
   }
 
+  /* ปุ่มเปิด popup ตรงกลางจอ */
+  #centerBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 18px 30px;
+    background: #68b3ff;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(104, 179, 255, 0.35);
+  }
+
   /* ปุ่มหนีตำแหน่ง */
   #moveBtn {
     position: absolute;
-    padding: 14px 22px;
+    padding: 13px 20px;
     background: #ff80c8;
     color: white;
     border: none;
@@ -28,22 +44,6 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(255, 128, 200, 0.35);
     transition: 0.15s;
-  }
-
-  /* ปุ่ม popup ตรงกลาง */
-  #centerBtn {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 15px 28px;
-    background: #68b3ff;
-    border: none;
-    border-radius: 30px;
-    font-size: 17px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(104, 179, 255, 0.35);
   }
 
   /* popup overlay */
@@ -56,7 +56,6 @@
     justify-content: center;
   }
 
-  /* popup box */
   #centerBox {
     background: #ffffff;
     padding: 18px;
@@ -70,7 +69,6 @@
   #centerBox img {
     width: 100%;
     border-radius: 12px;
-    margin-bottom: 12px;
   }
 
   #closeCenter {
@@ -87,18 +85,18 @@
 </head>
 <body>
 
+<!-- ปุ่มเปิด popup (อยู่กลางจอ) -->
+<button id="centerBtn">เปิดป๊อปอัป</button>
+
 <!-- ปุ่มที่หนีตำแหน่ง -->
 <button id="moveBtn">กดให้ทันสิ 😆</button>
-
-<!-- ปุ่มเปิด popup ตรงกลาง -->
-<button id="centerBtn">เปิดป๊อปอัป</button>
 
 <!-- popup ตรงกลาง -->
 <div id="centerPopup">
   <div id="centerBox">
     <img src="https://via.placeholder.com/350x200?text=Hello" alt="Popup Image">
     <h3>ป๊อปอัปแบบภาพ + ข้อความ</h3>
-    <p>นี่คือป๊อปอัปตรงกลาง เหมาะกับมือถือและโทนสีชมพูฟ้าขาว 💖</p>
+    <p>นี่คือป๊อปอัปตรงกลาง เหมาะกับมือถือ โทนชมพู–ฟ้า–ขาว 💖</p>
     <button id="closeCenter">ปิด</button>
   </div>
 </div>
@@ -118,13 +116,12 @@
     moveBtn.style.top = y + "px";
   }
 
-  moveButton(); // เริ่มต้นวางแบบสุ่ม
-
+  moveButton();
   moveBtn.addEventListener("touchstart", moveButton);
   moveBtn.addEventListener("mouseover", moveButton);
   moveBtn.addEventListener("click", moveButton);
 
-  // popup ตรงกลาง
+  // popup
   const centerBtn = document.getElementById("centerBtn");
   const centerPopup = document.getElementById("centerPopup");
   const closeCenter = document.getElementById("closeCenter");
@@ -132,15 +129,11 @@
   centerBtn.onclick = () => {
     centerPopup.style.display = "flex";
   };
-
   closeCenter.onclick = () => {
     centerPopup.style.display = "none";
   };
-
   centerPopup.onclick = (e) => {
-    if (e.target === centerPopup) {
-      centerPopup.style.display = "none";
-    }
+    if (e.target === centerPopup) centerPopup.style.display = "none";
   };
 </script>
 
