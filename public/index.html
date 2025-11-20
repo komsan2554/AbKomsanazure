@@ -1,21 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Praphakan</title>
-  <style>
-    body {
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Demo</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f2f2f2;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ปุ่มแบบหนีตำแหน่ง */
+  #moveBtn {
+    position: absolute;
+    padding: 12px 20px;
+    background: #ff3b3b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* ปุ่มเปิด popup กลาง */
+  #centerBtn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 26px;
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* popup random */
+  #randomPopup {
+    position: absolute;
+    padding: 12px 18px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    font-size: 15px;
+    display: none;
+  }
+
+  /* popup ตรงกลาง */
+  #centerPopup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #centerBox {
+    background: white;
+    padding: 20px;
+    width: 85%;
+    max-width: 380px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  #centerBox img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  #closeCenter {
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1> Praphakan (h) </h1>
-      <p1> Praphakan (p) </p1>
-<a href="https://pr.ac.th">เว็ปรร</a>
-    <footer>
-      <p>Praphakan (footer)</p>
-    </footer>
+
+<!-- ป๊อปอัปสุ่ม -->
+<div id="randomPopup">ป๊อปอัปสุ่มตำแหน่ง!</div>
+
+<!-- ปุ่มที่หนีตำแหน่ง -->
+<button id="moveBtn">กดฉันสิ 😆</button>
+
+<!-- ปุ่มเปิดป๊อปอัปกลาง -->
+<button id="centerBtn">ป๊อปอัปกลาง</button>
+
+<!-- ป๊อปอัปกลาง -->
+<div id="centerPopup">
+  <div id="centerBox">
+    <img src="https://via.placeholder.com/350x200" alt="">
+    <h3>ป๊อปอัปแบบมีรูปและข้อความ</h3>
+    <p>นี่คือข้อความตัวอย่างที่อยู่ใน popup ตรงกลาง</p>
+    <button id="closeCenter">ปิด</button>
   </div>
+</div>
+
+<script>
+  // -------------------------------
+  // 1) ป๊อปอัปสุ่มตำแหน่ง (ขึ้นเรื่อยๆ)
+  // -------------------------------
+  const randomPopup = document.getElementById("randomPopup");
+
+  function showRandomPopup() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const x = Math.random() * (w - 150);
+    const y = Math.random() * (h - 80);
+
+    randomPopup.style.left = x + "px";
+    randomPopup.style.top = y + "px";
+    randomPopup.style.display = "block";
+
+    setTimeout(() => {
+      randomPopup.style.display = "none";
+    }, 1200);
+  }
+
+  // แสดงทุก 2.5 วิ
+  setInterval(showRandomPopup, 2500);
+
+
+
+  // -------------------------------
+  // 2) ปุ่มที่หนีตำแหน่ง
+  // -------------------------------
+  const moveBtn = document.getElementById("moveBtn");
+
+  function moveButton() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const x = Math.random() * (w - 180);
+    const y = Math.random() * (h - 60);
+
+    moveBtn.style.left = x + "px";
+    moveBtn.style.top = y + "px";
+  }
+
+  moveButton(); // random เริ่มต้น
+  moveBtn.addEventListener("mouseover", moveButton);
+  moveBtn.addEventListener("click", moveButton);
+
+
+  // -------------------------------
+  // 3) ป๊อปอัปกลางพร้อมรูป + ข้อความ
+  // -------------------------------
+  const centerBtn = document.getElementById("centerBtn");
+  const centerPopup = document.getElementById("centerPopup");
+  const closeCenter = document.getElementById("closeCenter");
+
+  centerBtn.onclick = () => {
+    centerPopup.style.display = "flex";
+  };
+  closeCenter.onclick = () => {
+    centerPopup.style.display = "none";
+  };
+
+  // คลิกด้านนอกเพื่อปิด
+  centerPopup.onclick = (e) => {
+    if (e.target === centerPopup) {
+      centerPopup.style.display = "none";
+    }
+  };
+</script>
+
 </body>
 </html>
